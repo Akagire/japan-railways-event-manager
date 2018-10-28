@@ -41,6 +41,10 @@ group :development do
   # ide debug
   gem 'ruby-debug-ide'
   gem 'debase'
+
+  #rspec
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do

@@ -29,10 +29,19 @@ module Myapp
 
     # when use `rails g` command, unuse file created.
     # following codes are ignore create unuse files.
-    config.generators do |generator|
-      generator.assets false
-      generator.helper false
-      generator.test_framework false
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      # g.test_framework false
+
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true,
+        request_specs: false
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end
