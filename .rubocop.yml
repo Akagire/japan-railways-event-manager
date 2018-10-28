@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - 'app/bin/*'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'spec/*_helper.rb'
+    - 'config/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Exclude:
+    - 'Gemfile'
+
+Metrics/LineLength:
+  Max: 130
