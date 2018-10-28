@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7.21
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db/data:/var/lib/mysql
+  web:
+    build: .
+    environment:
+      RAILS_ENV: development
+    # command: bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- rails s -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - '3000:3000'
+      - '1234:1234'
+      - '26162:26162'
+    depends_on:
+      - db
