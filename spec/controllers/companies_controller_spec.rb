@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 describe CompaniesController, type: :controller do
-  let(:valid_attributes){
+  let(:valid_attributes) {
     {
       name: 'hoge',
       base_url: 'https://example.com'
     }
   }
 
-  let(:invalid_attributes){
+  let(:invalid_attributes) {
     {
       name: '',
       base_url: 'https://example.com'
@@ -18,7 +18,7 @@ describe CompaniesController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CompaniesController. Be sure to keep this updated too.
-  let(:valid_session){ {} }
+  let(:valid_session) { {} }
 
   describe 'GET #index' do
     it 'returns a success response' do
@@ -54,7 +54,7 @@ describe CompaniesController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Company' do
-        expect{
+        expect {
           post :create, params: { company: valid_attributes }, session: valid_session
         }.to change(Company, :count).by(1)
       end
@@ -75,7 +75,7 @@ describe CompaniesController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes){
+      let(:new_attributes) {
         {
           name: 'JR西日本',
           base_url: 'https://www.example.com/jr-west'
@@ -109,7 +109,7 @@ describe CompaniesController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the requested company' do
       company = Company.create! valid_attributes
-      expect{
+      expect {
         delete :destroy, params: { id: company.to_param }, session: valid_session
       }.to change(Company, :count).by(-1)
     end
